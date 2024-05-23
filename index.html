@@ -8,10 +8,23 @@
   </head>
     <p id="nombre">0</p>
     <p>cookies</p>
-    <p id="cps">par seconde : 0</p>
+    <p id="cpstot">par seconde : 0</p>
     <image src="./assets/PerfectCookie.png"  onclick="clique()">
-    <button id="cursor" onclick="cursor()">Cps : 1 , Prix : 150 ,  Nombre : 0</button>
-    <button id="Canard" onclick="canard()">Cps : 10 , Prix : 1000 ,  Nombre : 0</button>
+    
+      <div class="container" id="cursor" onclick="cursor()">
+        <img src="./assets/cursor.png" id="cursorPng">
+        <div id="cursorCps">Cps : 0.1</div>
+        <div id="cursorPrix">Prix : 15</div>
+        <div id="cursorNombre">Nombre : 0</div>
+      </div>
+
+      <div class="container" id="canard" onclick="canard()">
+        <img src="./assets/canard.png" id="canardPng">
+        <div id="canardCps">Cps : 1</div>
+        <div id="canardPrix">Prix : 100</div>
+        <div id="canardNombre">Nombre : 0</div>
+      </div>
+
     <script src="script.js"></script>
   </body>
 </html>
