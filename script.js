@@ -33,7 +33,7 @@ function cursor(){
         nbCookies = Math.round((nbCookies-cursorPrix)*10) / 10;
         cursorNombre++;
         cursorPrix = (15 * (1.15**cursorNombre)).toFixed();
-        document.getElementById("cursorCps").innerText = "Cps : " + cursorCps*cursorNombre;
+        document.getElementById("cursorCps").innerText = "Cps : " + cursorCps;
         document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix;
         document.getElementById("cursorNombre").innerText = "Nombre : " + cursorNombre;
         document.getElementById("nombre").innerText = nbCookies;
@@ -49,7 +49,7 @@ function canard(){
         nbCookies = nbCookies - canardPrix;
         canardPrix = (100 * (1.15**canardNombre)).toFixed();
         cps = cps + canardCps;
-        document.getElementById("canardCps").innerText = "Cps : " + canardCps*canardNombre;
+        document.getElementById("canardCps").innerText = "Cps : " + canardCps;
         document.getElementById("canardPrix").innerText = "Prix : " + canardPrix;
         document.getElementById("canardNombre").innerText = "Nombre : " + canardNombre;
         document.getElementById("nombre").innerText = nbCookies;
