@@ -4,22 +4,22 @@ let cpc = 1;
 
 function clique(){
     nbCookies = Math.round((nbCookies + cpc)*10) / 10;
-    document.getElementById("nombre").innerText = nbCookies;
+    document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     return nbCookies;
 }
 
 function parSeconde(){
     nbCookies = Math.round((nbCookies + cps)*10) / 10;
-    document.getElementById("nombre").innerText = nbCookies;
-    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps+cursorCps*cursorNombre)*10) / 10;
+    document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
+    document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
 }
 
 setInterval(parSeconde, 1000);
 
 function parSecondeVirgule(){
     nbCookies = nbCookies + cursorNombre*cursorCps*10 ;
-    document.getElementById("nombre").innerText = nbCookies;
-    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps+cursorCps*cursorNombre)*10) / 10;
+    document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
+    document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10 +"/s";
 }
 setInterval(parSecondeVirgule, 10000);
 
@@ -36,7 +36,7 @@ function cursor(){
         document.getElementById("cursorCps").innerText = "Cps : " + cursorCps;
         document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix;
         document.getElementById("cursorNombre").innerText = "Nombre : " + cursorNombre;
-        document.getElementById("nombre").innerText = nbCookies;
+        document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     }
 }
 
@@ -52,9 +52,6 @@ function canard(){
         document.getElementById("canardCps").innerText = "Cps : " + canardCps;
         document.getElementById("canardPrix").innerText = "Prix : " + canardPrix;
         document.getElementById("canardNombre").innerText = "Nombre : " + canardNombre;
-        document.getElementById("nombre").innerText = nbCookies;
-    }
-    else{
-        alert("Bah non t'es trop pauvre sale gueux")
+        document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     }
 }
