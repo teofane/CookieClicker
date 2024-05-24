@@ -31,3 +31,6 @@ body {
     width: 65px;
     flex-direction: row;
 }
+p {
+    font-family: "Jacquard 12", Helvetica, sans-serif;
+}
