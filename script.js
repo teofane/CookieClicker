@@ -11,7 +11,7 @@ function clique(){
 function parSeconde(){
     nbCookies = Math.round((nbCookies + cps)*10) / 10;
     document.getElementById("nombre").innerText = nbCookies;
-    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps)*10) / 10;
+    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps+cursorCps)*10) / 10;
 }
 
 setInterval(parSeconde, 1000);
