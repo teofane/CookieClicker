@@ -1,5 +1,5 @@
 body {
-    background-color: #b7deff;
+    background-color: #fff;
     color: #000000;
     font-family: sans-serif;
     font-size: 20px;
@@ -15,6 +15,7 @@ body {
     align-items: center;
     margin-bottom: 5px;
     background-color: #94b5cf;
+    border-radius:15px;
 }
 #cursorPng {
     width: 35px;
