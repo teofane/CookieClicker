@@ -16,6 +16,13 @@ function parSeconde(){
 
 setInterval(parSeconde, 1000);
 
+function parSecondeVirgule(){
+    nbCookies = nbCookies + 10*cursorCps ;
+    document.getElementById("nombre").innerText = nbCookies;
+    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps)*10) / 10;
+}
+setInterval(parSecondeVirgule, 10000);
+
 // Batiments
 
 let cursorPrix = 15;
@@ -26,7 +33,6 @@ function cursor(){
         nbCookies = Math.round((nbCookies-cursorPrix)*10) / 10;
         cursorNombre++;
         cursorPrix = (15 * (1.15**cursorNombre)).toFixed();
-        cps = cps + cursorCps;
         document.getElementById("cursorCps").innerText = "Cps : " + cursorCps;
         document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix;
         document.getElementById("cursorNombre").innerText = "Nombre : " + cursorNombre;
