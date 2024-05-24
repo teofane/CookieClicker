@@ -19,7 +19,7 @@ setInterval(parSeconde, 1000);
 function parSecondeVirgule(){
     nbCookies = nbCookies + 10*cursorCps ;
     document.getElementById("nombre").innerText = nbCookies;
-    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps)*10) / 10;
+    document.getElementById("cpstot").innerText = "par seconde : "+ Math.round((cps+cursorCps)*10) / 10;
 }
 setInterval(parSecondeVirgule, 10000);
 
