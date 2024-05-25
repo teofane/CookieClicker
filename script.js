@@ -26,7 +26,7 @@ function getCookie(name) {
     if (value === undefined) {
         return null;
     }        
-    return null;
+    return value;
 }
 
 function setCookie(name, value, days) {
