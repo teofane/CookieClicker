@@ -1,3 +1,7 @@
+html{
+    cursor: url(./assets/particules.png), auto;
+}
+
 body {
     background-color: #fff;
     color: #000000;
