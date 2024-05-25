@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="./style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   </head>
+  <body>
     <p id="nombre">Cookies : 0</p>
     <p id="cpstot">0/s</p>
-    <img src="./assets/PerfectCookie2.png"  onclick="clique()" id="PerfectCookie">
+    <img src="./assets/PerfectCookie2.png"  onclick="clique()" onclick="showCPC()" id="PerfectCookie">
     
       <div class="container" id="cursor" onclick="cursor()">
         <img src="./assets/cursor.png" id="cursorPng">
@@ -30,8 +31,9 @@
         <div id="chatPrix">Prix : 1100</div>
         <div id="chatNombre">Nombre : 0</div>
       </div>
-
-      <button onclick="reset()">reset</button>
     <script src="script.js"></script>
   </body>
+  <footer>
+    <button onclick="reset()" id="reset">reset</button>
+  </footer>
 </html>
