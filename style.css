@@ -1,16 +1,36 @@
 html{
     cursor: url(./assets/particules.png), auto;
-}
-
-body {
+    user-select: none;
     background-color: #fff;
     color: #000000;
     font-family: sans-serif;
     font-size: 20px;
     padding: 0%;
-    cursor: url(./assets/particules.png), auto;
 }
-.container  {
+
+#PerfectCookie {
+    -webkit-user-drag: none;
+    width: 400px;
+    filter: blur(1px);
+    transition: 0.5s;
+    animation: rotate 30s infinite linear;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#PerfectCookie:hover {
+    filter: blur(0px);
+    width: 425px;
+}
+
+.container, #reset  {
+    border: none;
     width: 200px;
     user-select: none;
     display: flex;
@@ -19,6 +39,13 @@ body {
     margin-bottom: 5px;
     background-color: #94b5cf;
     border-radius:15px;
+    transition: 1s;
+    filter: blur(0.5px);
+}
+.container:hover, #reset:hover {
+    background-color: #596d7c;
+    width: 225px;
+    filter: blur(0px);
 }
 #cursorPng {
     width: 35px;
@@ -40,7 +67,4 @@ body {
 }
 #chat {
     cursor: url(./assets/chat-cursor.png), auto;
-}
-#PerfectCookie {
-    width: 400px;
 }
