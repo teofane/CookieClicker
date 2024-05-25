@@ -1,17 +1,19 @@
 let cpc = 1;
 
 // Cookies
-
 function reset(){
-    nbCookies = 0;
-    cps = 0;
-    cursorPrix = 15;
-    cursorNombre = 0;
-    canardPrix = 100;
-    canardNombre = 0;
-    chatNombre = 0
-    chatPrix = 1100
+    if (confirm("Êtes-vous sûr de vouloir recommencer ? \nCela supprimera toutes vos données de jeu.\nVous devrez tout recommencer à zéro")){
+        nbCookies = 0;
+        cps = 0;
+        cursorPrix = 15;
+        cursorNombre = 0;
+        canardPrix = 100;
+        canardNombre = 0;
+        chatNombre = 0;
+        chatPrix = 1100;
+    }
 }
+
 if (getCookie('cookie1') === null) {
     reset()
 } else {
