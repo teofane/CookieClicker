@@ -42,6 +42,12 @@ function sendCookie() {
     setCookie('cookie4', cursorNombre, 3);
     setCookie('cookie5', canardPrix, 3);
     setCookie('cookie6', canardNombre, 3);
+    document.getElementById("canardPrix").innerText = "Prix : " + canardPrix;
+    document.getElementById("canardNombre").innerText = "Nombre : " + canardNombre;
+    document.getElementById("cursorCps").innerText = "Cps : " + cursorCps;
+    document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix;
+    document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
+    document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
 }
 
 setInterval(sendCookie, 100);
