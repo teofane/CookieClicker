@@ -39,7 +39,7 @@ html{
     margin-bottom: 5px;
     background-color: #94b5cf;
     border-radius:15px;
-    transition: 1s;
+    transition: 0.5s;
     filter: blur(0.5px);
 }
 .container:hover, #reset:hover {
