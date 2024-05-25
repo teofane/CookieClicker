@@ -9,6 +9,8 @@ function reset(){
     cursorNombre = 0;
     canardPrix = 100;
     canardNombre = 0;
+    chatNombre = 0
+    chatPrix = 1100
 }
 if (getCookie('cookie1') === null) {
     reset()
@@ -19,6 +21,8 @@ if (getCookie('cookie1') === null) {
     cursorNombre = parseInt(getCookie('cookie4'), 10);
     canardPrix = parseInt(getCookie('cookie5'), 10);
     canardNombre = parseInt(getCookie('cookie6'), 10);
+    chatNombre = parseInt(getCookie('cookie7'), 10);
+    chatPrix = parseInt(getCookie('cookie8'), 10);
 }
 
 function getCookie(name) {
@@ -45,10 +49,14 @@ function sendCookie() {
     setCookie('cookie4', cursorNombre, 3);
     setCookie('cookie5', canardPrix, 3);
     setCookie('cookie6', canardNombre, 3);
+    setCookie('cookie7', chatNombre, 3);
+    setCookie('cookie8', chatPrix, 3);
     document.getElementById("canardPrix").innerText = "Prix : " + parseInt(getCookie('cookie5'), 10);
     document.getElementById("canardNombre").innerText = "Nombre : " + parseInt(getCookie('cookie6'), 10);
     document.getElementById("cursorNombre").innerText = "Nombre : " + parseInt(getCookie('cookie4'), 10);
     document.getElementById("cursorPrix").innerText = "Prix : " + parseInt(getCookie('cookie3'), 10);
+    document.getElementById("chatNombre").innerText = "Nombre : " + parseInt(getCookie('cookie7'), 10);
+    document.getElementById("chatPrix").innerText = "Prix : " + parseInt(getCookie('cookie8'), 10);
     document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
 }
@@ -103,6 +111,20 @@ function canard(){
         document.getElementById("canardCps").innerText = "Cps : " + canardCps;
         document.getElementById("canardPrix").innerText = "Prix : " + canardPrix;
         document.getElementById("canardNombre").innerText = "Nombre : " + canardNombre;
+        document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
+    }
+}
+
+let chatCps = 8;
+function chat(){
+    if (nbCookies-chatPrix >= 0){
+        chatNombre ++;
+        nbCookies = nbCookies - chatPrix;
+        chatPrix = (1100 * (1.15**chatNombre)).toFixed();
+        cps = cps + chatCps;
+        document.getElementById("chatCps").innerText = "Cps : " + chatCps;
+        document.getElementById("chatPrix").innerText = "Prix : " + chatPrix;
+        document.getElementById("chatNombre").innerText = "Nombre : " + chatNombre;
         document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     }
 }
