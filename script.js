@@ -1,6 +1,7 @@
 let cpc = 1;
 
 // Cookies
+
 function reset(){
     nbCookies = 0;
     cps = 0;
@@ -10,12 +11,7 @@ function reset(){
     canardNombre = 0;
 }
 if (getCookie('cookie1') === null) {
-    nbCookies = 0;
-    cps = 0;
-    cursorPrix = 15;
-    cursorNombre = 0;
-    canardPrix = 100;
-    canardNombre = 0;
+    reset()
 } else {
     nbCookies = parseInt(getCookie('cookie1'), 10);
     cps = parseInt(getCookie('cookie2'), 10);
@@ -68,7 +64,6 @@ function clique(){
 }
 
 function parSeconde(){
-    document.cookie = "cookie1=nbCookies; cookie2=cps"
     nbCookies = Math.round((nbCookies + cps)*10) / 10;
     document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
