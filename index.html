@@ -8,7 +8,7 @@
   </head>
     <p id="nombre">Cookies : 0</p>
     <p id="cpstot">0/s</p>
-    <img src="./assets/PerfectCookie2.png"  onclick="clique()">
+    <img src="./assets/PerfectCookie2.png"  onclick="clique()" id="PerfectCookie">
     
       <div class="container" id="cursor" onclick="cursor()">
         <img src="./assets/cursor.png" id="cursorPng">
@@ -23,6 +23,14 @@
         <div id="canardPrix">Prix : 100</div>
         <div id="canardNombre">Nombre : 0</div>
       </div>
+
+      <div class="container" id="chat" onclick="chat()">
+        <img src="./assets/chat.png" id="chatPng">
+        <div id="chatCps">Cps : 8</div>
+        <div id="chatPrix">Prix : 1100</div>
+        <div id="chatNombre">Nombre : 0</div>
+      </div>
+
       <button onclick="reset()">reset</button>
     <script src="script.js"></script>
   </body>
