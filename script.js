@@ -2,6 +2,9 @@ let nbCookies = 0;
 let cps = 0;
 let cpc = 1;
 
+document.cookie = 'user=Pierre'; //Crée ou met à jour un cookie 'user'
+alert(document.cookie); //Affiche la liste des cookies
+
 function clique(){
     nbCookies = Math.round((nbCookies + cpc)*10) / 10;
     document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
