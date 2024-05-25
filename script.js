@@ -49,10 +49,10 @@ function sendCookie() {
     setCookie('cookie4', cursorNombre, 3);
     setCookie('cookie5', canardPrix, 3);
     setCookie('cookie6', canardNombre, 3);
-    document.getElementById("canardPrix").innerText = "Prix : " + canardPrix;
-    document.getElementById("canardNombre").innerText = "Nombre : " + canardNombre;
-    document.getElementById("cursorCps").innerText = "Cps : " + cursorCps;
-    document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix;
+    document.getElementById("canardPrix").innerText = "Prix : " + parseInt(getCookie('cookie5'), 10);
+    document.getElementById("canardNombre").innerText = "Nombre : " + parseInt(getCookie('cookie6'), 10);
+    document.getElementById("cursorNombre").innerText = "Nombre : " + parseInt(getCookie('cookie4'), 10);
+    document.getElementById("cursorPrix").innerText = "Prix : " + parseInt(getCookie('cookie3'), 10);
     document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
 }
