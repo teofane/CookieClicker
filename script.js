@@ -57,7 +57,7 @@ function sendCookie() {
     document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
 }
 
-setInterval(sendCookie, 100);
+setInterval(sendCookie, 1000);
 
 // fonctions principales
 
