@@ -2,7 +2,7 @@ let cpc = 1;
 
 // Cookies
 function reset(){
-    if (confirm("Êtes-vous sûr de vouloir recommencer ? \nCela supprimera toutes vos données de jeu.\nVous devrez tout recommencer à zéro")){
+    if (confirm("Êtes-vous sûr de vouloir recommencer ? \nCela supprimera toutes vos données de jeu.\nCela pourrait être utile si vous avez des bugs.")){
         nbCookies = 0;
         cps = 0;
         cursorPrix = 15;
