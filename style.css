@@ -28,9 +28,19 @@ body {
     width: 65px;
     flex-direction: row;
 }
+#chatPng {
+    width: 55px;
+    flex-direction: row;
+}
 #cursor {
     cursor:pointer;
 }
- #canard {
+#canard {
     cursor: url(./assets/canard-cursor.png), auto;
- }
+}
+#chat {
+    cursor: url(./assets/chat-cursor.png), auto;
+}
+#PerfectCookie {
+    width: 400px;
+}
