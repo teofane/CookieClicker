@@ -1,7 +1,14 @@
 let cpc = 1;
 
 // Cookies
-
+function reset(){
+    nbCookies = 0;
+    cps = 0;
+    cursorPrix = 15;
+    cursorNombre = 0;
+    canardPrix = 100;
+    canardNombre = 0;
+}
 if (getCookie('cookie1') === null) {
     nbCookies = 0;
     cps = 0;
