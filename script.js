@@ -86,84 +86,95 @@ function clique(){
 }
 
 function updateTextes(){
-    if(nbCookies < 1000){
-        document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
-    }else if(nbCookies >= 1000){
-        document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000).toFixed(1) + "k";
+    if(nbCookies >= 1000000000000){
+        document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000000000000).toFixed(1) + "T";
+    } else if(nbCookies >= 1000000000){
+        document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000000000).toFixed(1) + "B";
     }else if(nbCookies >= 1000000){
         document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000000).toFixed(1) + "M";
-    }else if(nbCookies >= 1000000000){
-        document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000000000).toFixed(1) + "B";
-    }else if(nbCookies >= 1000000000000){
-        document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000000000000).toFixed(1) + "T";
+    }
+    else if(nbCookies >= 1000){
+        document.getElementById("nombre").innerText = "Cookies : " + (nbCookies/1000).toFixed(1) + "k";
+    }else if(nbCookies < 1000){
+        document.getElementById("nombre").innerText = "Cookies : " + nbCookies;
     }
 
-    document.getElementById("cpstot").innerText = Math.round((cps+cursorCps*cursorNombre)*10) / 10+"/s";
-
-    if (cursorPrix < 1000){
-        document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix;
-    } else if (cursorPrix >= 1000){
-        document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix/1000 + "k";
-    } else if (cursorPrix >= 1000000){
-        document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix/1000000 + "M";
-    } else if (cursorPrix >= 1000000000){
-        document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix/1000000000 + "B";
-    } else if (cursorPrix >= 1000000000000){
-        document.getElementById("cursorPrix").innerText = "Prix : " + cursorPrix/1000000000000 + "T";
-    }
+    if (cursorPrix >= 1000000000000){
+        document.getElementById("cursorPrix").innerText = "Prix: " + (cursorPrix/1000000000000).toFixed(1) + "T";
+        } else if (cursorPrix >= 1000000000){
+        document.getElementById("cursorPrix").innerText = "Prix: " + (cursorPrix/1000000000).toFixed(1) + "B";
+        } else if (cursorPrix >= 1000000){
+        document.getElementById("cursorPrix").innerText = "Prix: " + (cursorPrix/1000000).toFixed(1) + "M";
+        } else if (cursorPrix >= 1000){
+        document.getElementById("cursorPrix").innerText = "Prix: " + (cursorPrix/1000).toFixed(1) + "k";
+        } else if (cursorPrix < 1000){
+        document.getElementById("cursorPrix").innerText = "Prix: " + cursorPrix;
+        }
     document.getElementById("cursorNombre").innerText = "Nombre : " + cursorNombre;
 
-    if (canardPrix < 1000){
-        document.getElementById("canardPrix").innerText = "Prix : " + canardPrix;
-    } else if (canardPrix >= 1000){
-        document.getElementById("canardPrix").innerText = "Prix : " + canardPrix/1000 + "k";
-    } else if (canardPrix >= 1000000){
-        document.getElementById("canardPrix").innerText = "Prix : " + canardPrix/1000000 + "M";
+    if (canardPrix >= 1000000000000){
+        document.getElementById("canardPrix").innerText = "Prix: " + (canardPrix/1000000000000).toFixed(1) + "T";
     } else if (canardPrix >= 1000000000){
-        document.getElementById("canardPrix").innerText = "Prix : " + canardPrix/1000000000 + "B";
-    } else if (canardPrix >= 1000000000000){
-        document.getElementById("canardPrix").innerText = "Prix : " + canardPrix/1000000000000 + "T";
+        document.getElementById("canardPrix").innerText = "Prix: " + (canardPrix/1000000000).toFixed(1) + "B";
+    } else if (canardPrix >= 1000000){
+        document.getElementById("canardPrix").innerText = "Prix: " + (canardPrix/1000000).toFixed(1) + "M";
+    } else if (canardPrix >= 1000){
+        document.getElementById("canardPrix").innerText = "Prix: " + (canardPrix/1000).toFixed(1) + "k";
+    } else if (canardPrix < 1000){
+        document.getElementById("canardPrix").innerText = "Prix: " + canardPrix;
     }
     document.getElementById("canardNombre").innerText = "Nombre : " + canardNombre;
 
-    if (chatPrix < 1000){
-        document.getElementById("chatPrix").innerText = "Prix : " + chatPrix;
-    } else if (chatPrix >= 1000){
-        document.getElementById("chatPrix").innerText = "Prix : " + chatPrix/1000 + "k";
-    } else if (chatPrix >= 1000000){
-        document.getElementById("chatPrix").innerText = "Prix : " + chatPrix/1000000 + "M";
+    if (chatPrix >= 1000000000000){
+        document.getElementById("chatPrix").innerText = "Prix: " + (chatPrix/1000000000000).toFixed(1) + "T";
     } else if (chatPrix >= 1000000000){
-        document.getElementById("chatPrix").innerText = "Prix : " + chatPrix/1000000000 + "B";
-    }   else if (chatPrix >= 1000000000000){
-        document.getElementById("chatPrix").innerText = "Prix : " + chatPrix/1000000000000 + "T";
+        document.getElementById("chatPrix").innerText = "Prix: " + (chatPrix/1000000000).toFixed(1) + "B";
+    } else if (chatPrix >= 1000000){
+        document.getElementById("chatPrix").innerText = "Prix: " + (chatPrix/1000000).toFixed(1) + "M";
+    } else if (chatPrix >= 1000){
+        document.getElementById("chatPrix").innerText = "Prix: " + (chatPrix/1000).toFixed(1) + "k";
+    } else if (chatPrix < 1000){
+        document.getElementById("chatPrix").innerText = "Prix: " + chatPrix;
     }
     document.getElementById("chatNombre").innerText = "Nombre : " + chatNombre;
 
-    if (chienPrix < 1000){
-        document.getElementById("chienPrix").innerText = "Prix : " + chienPrix;
-    } else if (chienPrix >= 1000){
-        document.getElementById("chienPrix").innerText = "Prix : " + chienPrix/1000 + "k";
-    }else if (chienPrix >= 1000000){
-        document.getElementById("chienPrix").innerText = "Prix : " + chienPrix/1000000 + "M";
+    if (chienPrix >= 1000000000000){
+        document.getElementById("chienPrix").innerText = "Prix: " + (chienPrix/1000000000000).toFixed(1) + "T";
     } else if (chienPrix >= 1000000000){
-        document.getElementById("chienPrix").innerText = "Prix : " + chienPrix/1000000000 + "B";
-    } else if (chienPrix >= 1000000000000){
-        document.getElementById("chienPrix").innerText = "Prix : " + chienPrix/1000000000000 + "T";
+        document.getElementById("chienPrix").innerText = "Prix: " + (chienPrix/1000000000).toFixed(1) + "B";
+    } else if (chienPrix >= 1000000){
+        document.getElementById("chienPrix").innerText = "Prix: " + (chienPrix/1000000).toFixed(1) + "M";
+    } else if (chienPrix >= 1000){
+        document.getElementById("chienPrix").innerText = "Prix: " + (chienPrix/1000).toFixed(1) + "k";
+    } else if (chienPrix < 1000){
+        document.getElementById("chienPrix").innerText = "Prix: " + chienPrix;
     }
     document.getElementById("chienNombre").innerText = "Nombre : " + chienNombre;
 
-    if (usinePrix < 1000){  
-        document.getElementById("usinePrix").innerText = "Prix : " + usinePrix;
-    } else if (usinePrix >= 1000){
-        document.getElementById("usinePrix").innerText = "Prix : " + usinePrix/1000 + "k";
-    } else if (usinePrix >= 1000000){
-        document.getElementById("usinePrix").innerText = "Prix : " + usinePrix/1000000 + "M";
+    if (usinePrix >= 1000000000000){
+        document.getElementById("usinePrix").innerText = "Prix: " + (usinePrix/1000000000000).toFixed(1) + "T";
     } else if (usinePrix >= 1000000000){
-        document.getElementById("usinePrix").innerText = "Prix : " + usinePrix/1000000000 + "B";
-    } else if (usinePrix >= 1000000000000){
-        document.getElementById("usinePrix").innerText = "Prix : " + usinePrix/1000000000000 + "T";
+        document.getElementById("usinePrix").innerText = "Prix: " + (usinePrix/1000000000).toFixed(1) + "B";
+    } else if (usinePrix >= 1000000){
+        document.getElementById("usinePrix").innerText = "Prix: " + (usinePrix/1000000).toFixed(1) + "M";
+    } else if (usinePrix >= 1000){
+        document.getElementById("usinePrix").innerText = "Prix: " + (usinePrix/1000).toFixed(1) + "k";
+    } else if (usinePrix < 1000){
+        document.getElementById("usinePrix").innerText = "Prix: " + usinePrix;
     }
     document.getElementById("usineNombre").innerText = "Nombre : " + usineNombre;
+ 
+    if (cps >= 1000000000000){
+        document.getElementById("cpstot").innerText = (Math.round((cps+cursorCps*cursorNombre)*10) /10/1000000000000).toFixed(1) + "T/s";
+    }else if (cps >= 1000000000){
+        document.getElementById("cpstot").innerText = (Math.round((cps+cursorCps*cursorNombre)*10) /10/1000000000).toFixed(1) + "B/s";
+    } else if (cps >= 1000000){
+        document.getElementById("cpstot").innerText = (Math.round((cps+cursorCps*cursorNombre)*10) /10/1000000).toFixed(1) + "M/s";
+    } else if (cps >= 1000){
+        document.getElementById("cpstot").innerText = (Math.round((cps+cursorCps*cursorNombre)*10) /10/1000).toFixed(1) + "k/s";
+    } else if (cps < 1000){ 
+        document.getElementById("cpstot").innerText = (Math.round((cps+cursorCps*cursorNombre)*10) / 10).toFixed(1) + "/s";
+    }
 
 }
 
