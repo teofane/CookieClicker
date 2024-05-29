@@ -189,6 +189,21 @@ function parSeconde(){
 }
 setInterval(parSecondeVirgule, 10000);
 setInterval(parSeconde, 1000);
+
+//destruction
+
+function destruction(){ 
+    if (confirm("Êtes-vous sûr de vouloir tout détruire ?")){
+        nbCookies = Infinity;
+        cps = Infinity;
+        cursorPrix = 0;
+        canardPrix = 0;
+        chatPrix = 0;
+        chienPrix = 0;
+        usinePrix = 0;
+    }
+}
+
 // Batiments
 
 function cursor(){
