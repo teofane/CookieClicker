@@ -28,7 +28,7 @@ html{
 
 #PerfectCookie:hover {
     filter: blur(0px);
-    width: 475px;
+    width:100%;
 }
 
 .parent-container {
