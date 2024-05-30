@@ -1,6 +1,6 @@
 html{
     max-width: 100% ! important;
-    overflow-x: hidden ! important;
+    overflow: hidden ! important;
     cursor: url(./assets/cookie-cursor.png), auto;
     user-select: none;
     background-color: #fff;
