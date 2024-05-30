@@ -1,5 +1,6 @@
 html{
     max-height: 100% ! important;
+    max-width: 100% ! important;
     overflow: hidden ! important;
     cursor: url(./assets/cookie-cursor.png), auto;
     user-select: none;
@@ -41,7 +42,7 @@ html{
     top: 0;
 }
 
-.container, #reset  {
+#Cursor, #Canard , #Chat ,#Chien ,#Usine ,#reset  {
     border: none;
     width: 200px;
     user-select: none;
@@ -55,7 +56,7 @@ html{
     margin-right: 10px;
 }
 
-.container:hover, #reset:hover {
+#Cursor:hover, #Canard:hover , #Chat:hover ,#Chien:hover ,#Usine:hover, #reset:hover {
     background-color: #596d7c;
     width: 225px;
 }
