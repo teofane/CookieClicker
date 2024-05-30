@@ -30,6 +30,7 @@ html{
 }
 
 .parent-container {
+    height:90%;overflow:auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end; 
