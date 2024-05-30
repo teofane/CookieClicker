@@ -1,5 +1,5 @@
 html{
-    max-width: 100% ! important;
+    max-height: 100% ! important;
     overflow: hidden ! important;
     cursor: url(./assets/cookie-cursor.png), auto;
     user-select: none;
@@ -28,7 +28,7 @@ html{
 
 #PerfectCookie:hover {
     filter: blur(0px);
-    width:100%;
+    width:500px;
 }
 
 .parent-container {
