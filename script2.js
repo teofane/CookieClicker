@@ -14,19 +14,21 @@ tempsAfkInit = parseInt(Date.now()) - date; //on calcule le temps passé en afk
 console.log(tempsAfkInit,nbCookies);
 nbCookies = nbCookies + (cps * (tempsAfkInit / 1000)); //on ajoute les cookies gagnés en afk
 
-let tempsAfk2 = tempsAfkInit;
-let tempsDeco = '';
-const alert = document.createElement('div');
-if (tempsAfk2 >= 86400000){tempsDeco = Math.floor(tempsAfk2/86400000) + " jours, " ; tempsAfk2 -= Math.floor(tempsAfk2/86400000)*86400000;}
-if (tempsAfk2 >= 3600000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/3600000) + " heures, "; tempsAfk2 -= Math.floor(tempsAfk2/3600000)*3600000;}
-if (tempsAfk2 >= 60000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/60000) + " minutes, "; tempsAfk2 -= Math.floor(tempsAfk2/60000)*60000;}
-if (tempsAfk2 >= 1000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/1000) + " secondes, "; tempsAfk2 -= Math.floor(tempsAfk2/1000)*1000;}
-alert.textContent = `Temps de déconnexion : ${tempsDeco} \nCookies gagnés : ${formatage(cps * tempsAfkInit/1000)}`;
-alert.id = 'alert';
-document.body.appendChild(alert);
-setTimeout(() => {
-    alert.remove();
-}, 5000);
+if (tempsAfkInit >= 1000) {
+    let tempsAfk2 = tempsAfkInit;
+    let tempsDeco = '';
+    const alert = document.createElement('div');
+    if (tempsAfk2 >= 86400000){tempsDeco = Math.floor(tempsAfk2/86400000) + " jours, " ; tempsAfk2 -= Math.floor(tempsAfk2/86400000)*86400000;}
+    if (tempsAfk2 >= 3600000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/3600000) + " heures, "; tempsAfk2 -= Math.floor(tempsAfk2/3600000)*3600000;}
+    if (tempsAfk2 >= 60000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/60000) + " minutes, "; tempsAfk2 -= Math.floor(tempsAfk2/60000)*60000;}
+    if (tempsAfk2 >= 1000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/1000) + " secondes, "; tempsAfk2 -= Math.floor(tempsAfk2/1000)*1000;}
+    alert.textContent = `Temps de déconnexion : ${tempsDeco} \nCookies gagnés : ${formatage(cps * tempsAfkInit/1000)}`;
+    alert.id = 'alert';
+    document.body.appendChild(alert);
+    setTimeout(() => {
+        alert.remove();
+    }, 5000);
+}
 
 for (i=0; i < batiments.length; i++) {affichageBatiment(i);} //on affiche les batiments déjà disponibles
 
