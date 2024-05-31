@@ -11,7 +11,6 @@ else {
 }
 
 tempsAfkInit = parseInt(Date.now()) - date; //on calcule le temps passé en afk
-tempsAfkInit = 266589000; ;
 console.log(tempsAfkInit,nbCookies);
 nbCookies = nbCookies + (cps * (tempsAfkInit / 1000)); //on ajoute les cookies gagnés en afk
 
