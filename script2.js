@@ -145,8 +145,3 @@ function formatage(nb){
 
 setInterval(updateTextes, 100);
 setInterval(parSeconde, 1000);
-
-}
-
-setInterval(updateTextes, 100);
-setInterval(parSeconde, 1000);
