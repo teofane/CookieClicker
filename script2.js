@@ -19,18 +19,39 @@ updateTextes();
 function createBatiment(nom, prix, cps, nombre) {batiments.push([nom, prix, cps, nombre, prix]);}
 
 function creationBatiments(){
-    if (nbCookies >= 15 && batiments.length === 0){createBatiment("Cursor", 15, 0.1, 0);affichageBatiment(0);}
-    if (nbCookies >= 100 && batiments.length === 1){createBatiment("Canard", 100, 1, 0);affichageBatiment(1);}
-    if (nbCookies >= 1100 && batiments.length === 2){createBatiment("Chat", 1100, 8, 0);affichageBatiment(2);}
-    if (nbCookies >= 12000 && batiments.length === 3){createBatiment("Chien", 12000, 47, 0);affichageBatiment(3);}
-    if (nbCookies >= 130000 && batiments.length === 4){createBatiment("Usine", 130000, 260, 0);affichageBatiment(4);}
+    if (nbCookies >= 15 && batiments.length === 0){createBatiment('Cursor', 15, 0.1, 0);affichageBatiment(0);}
+    if (nbCookies >= 100 && batiments.length === 1){createBatiment('Canard', 100, 1, 0);affichageBatiment(1);}
+    if (nbCookies >= 1100 && batiments.length === 2){createBatiment('Chat', 1100, 8, 0);affichageBatiment(2);}
+    if (nbCookies >= 12000 && batiments.length === 3){createBatiment('Chien', 12000, 47, 0);affichageBatiment(3);}
+    if (nbCookies >= 130000 && batiments.length === 4){createBatiment('Usine', 130000, 260, 0);affichageBatiment(4);}
 }
 
 function affichageBatiment(i){ // i est la position du batiment dans le tableau
+
     const batimentDiv = document.createElement('div');
-    batimentDiv.textContent = batiments[i][0] + " : " + batiments[i][3];
     batimentDiv.id = batiments[i][0];
     document.getElementById('batiments').appendChild(batimentDiv);
+
+    const batimentImg = document.createElement('img');
+    batimentImg.src = 'assets/' + batiments[i][0] + '.png';
+    batimentImg.id = batiments[i][0] + 'Png';
+    batimentDiv.appendChild(batimentImg);
+
+    const prixDiv = document.createElement('div');
+    prixDiv.id = 'Prix';
+    prixDiv.textContent = "Prix : " + formatage(batiments[i][1]);
+    batimentDiv.appendChild(prixDiv);
+
+    const cpsDiv = document.createElement('div');
+    cpsDiv.id = 'Cps';
+    cpsDiv.textContent = "Cps : " + formatage(batiments[i][2]);
+    batimentDiv.appendChild(cpsDiv);
+
+    const nombreDiv = document.createElement('div');
+    nombreDiv.id = 'Nombre';
+    nombreDiv.textContent = "Nombre : " + batiments[i][3];
+    batimentDiv.appendChild(nombreDiv);
+
     document.getElementById(batiments[i][0]).onclick = function() {
         if (nbCookies >= batiments[i][1]){
         nbCookies = nbCookies - batiments[i][1];
@@ -90,16 +111,15 @@ function clique(){
 
 function updateTextes(){
 
-    document.getElementById('nombre').textContent = "Cookies : " + formatage(nbCookies);
+    document.getElementById('nombre').textContent = formatage(nbCookies) + " cookies";
     document.getElementById('cpstot').textContent = formatage(cps) + "/s" ;
 
     for (let i = 0; i < batiments.length; i++){
-        const element = document.getElementById(batiments[i][0]);
-        if (element) {
-            element.textContent = batiments[i][0] + " Prix : " + formatage(batiments[i][1]) + " Nombre : " + batiments[i][3];
-        }
+        document.getElementById('Prix').textContent = " Prix : " + formatage(batiments[i][1]);
+        document.getElementById('Cps').textContent = " Cps : " + formatage(batiments[i][2]);
+        document.getElementById('Nombre').textContent = " Nombre : " + batiments[i][3];
     }
-    document.title = parseInt(formatage(nbCookies)) + " cookies - Cookie Clicker";
+    document.title = formatage(nbCookies) + " cookies - Cookie Clicker";
 }
 
 function parSeconde(){
@@ -117,8 +137,10 @@ function formatage(nb){
             nb = nb / 1000;
             i++;
         }
-        return nb.toFixed(1) + ['','','Millions','Billion ','Trillion ','Quadrilion','Quintillion','Sextilion','Septillion ','Octillion ','Nonillion','Decillion','Undecillion','Billion', 'Trillion', 'Quadrillion', 'Quintillion', 'Sextillion', 'Septillion', 'Octillion', 'Nonillion', 'Decillion', 'Undecillion', 'Duodecillion', 'Tredecillion', 'Quattuordecillion', 'Quindecillion', 'Sexdecillion', 'Septendecillion', 'Octodecillion', 'Novemdecillion', 'Vigintillion', 'Unvigintillion'][i];
+        if (i < 12){return nb.toFixed(1) + ['','',' thousand',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
+        else {return nb.toFixed(1) + ' Mais wsh frr abuse\n arrete de cheat ou achete toi une vie';}
     }
+
 }
 
 setInterval(updateTextes, 100);
