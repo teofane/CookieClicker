@@ -115,7 +115,7 @@ function formatage(nb){
         nb = nb / 1000;
         i++;
     }
-    return nb.toFixed(1) + ['','K','M','B','T','Q'][i];
+    return nb.toFixed(1) + ['','K','M','B','T','Q','S','H','O','N'][i];
 }
 setInterval(updateTextes, 100);
 setInterval(parSeconde, 1000);
