@@ -92,7 +92,7 @@ function clique(){
 
 function updateTextes(){
 
-    if (nbCookies < 1000){document.getElementById('nombre').textContent = parseInt(formatage(nbCookies));}
+    if (nbCookies < 1000){document.getElementById('nombre').textContent = "Cookies : " + parseInt(formatage(nbCookies));}
     else {document.getElementById('nombre').textContent = "Cookies : " + formatage(nbCookies);}
     document.getElementById('cpstot').textContent = formatage(cps) + "/s" ;
 
