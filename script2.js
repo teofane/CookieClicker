@@ -92,8 +92,7 @@ function clique(){
 
 function updateTextes(){
 
-    if (nbCookies < 1000){document.getElementById('nombre').textContent = "Cookies : " + parseInt(formatage(nbCookies));}
-    else {document.getElementById('nombre').textContent = "Cookies : " + formatage(nbCookies);}
+    document.getElementById('nombre').textContent = "Cookies : " + formatage(nbCookies);
     document.getElementById('cpstot').textContent = formatage(cps) + "/s" ;
 
     for (let i = 0; i < batiments.length; i++){
@@ -102,6 +101,7 @@ function updateTextes(){
             element.textContent = batiments[i][0] + " Prix : " + formatage(batiments[i][1]) + " Nombre : " + batiments[i][3];
         }
     }
+    document.title = parseInt(formatage(nbCookies)) + " cookies - Cookie Clicker";
 }
 
 function parSeconde(){
@@ -110,12 +110,18 @@ function parSeconde(){
 }
 
 function formatage(nb){
-    let i = 0;
-    while (nb >= 1000){
-        nb = nb / 1000;
-        i++;
+    if (nb < 1000000){
+        if (nb !== cps){return Math.round(nb);}
+        else {return nb.toFixed(1);}
+    }else{
+        let i = 0;
+        while (nb >= 1000){
+            nb = nb / 1000;
+            i++;
+        }
+        return nb.toFixed(1) + ['','','Millions','Billion ','Trillion ','Quadrilion','Quintillion','Sextilion','Septillion ','Octillion ','Nonillion','Decillion','Undecillion','Billion', 'Trillion', 'Quadrillion', 'Quintillion', 'Sextillion', 'Septillion', 'Octillion', 'Nonillion', 'Decillion', 'Undecillion', 'Duodecillion', 'Tredecillion', 'Quattuordecillion', 'Quindecillion', 'Sexdecillion', 'Septendecillion', 'Octodecillion', 'Novemdecillion', 'Vigintillion', 'Unvigintillion'][i];
     }
-    return nb.toFixed(1) + ['','K','M','B','T','Q','S','H','O','N'][i];
 }
+
 setInterval(updateTextes, 100);
 setInterval(parSeconde, 1000);
