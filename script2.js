@@ -99,7 +99,7 @@ function updateTextes(){
     for (let i = 0; i < batiments.length; i++){
         const element = document.getElementById(batiments[i][0]);
         if (element) {
-            element.textContent = batiments[i][0] + " Prix : " + batiments[i][1] + " Nombre : " + batiments[i][3];
+            element.textContent = batiments[i][0] + " Prix : " + formatage(batiments[i][1]) + " Nombre : " + batiments[i][3];
         }
     }
 }
