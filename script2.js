@@ -9,11 +9,9 @@ if (getCookie('cookie1') === null || getCookie('cookie2') === null || getCookie(
     cps = parseFloat(getCookie('cookie2'), 10);
     batiments = JSON.parse(getCookie('cookie3'));
 }
-if (batiments.length >= 1){affichageBatiment(0);}
-if (batiments.length >= 2){affichageBatiment(1);}
-if (batiments.length >= 3){affichageBatiment(2);}
-if (batiments.length >= 4){affichageBatiment(3);}
-if (batiments.length >= 5){affichageBatiment(4);}
+for (i=0; i < batiments.length; i++) {
+    affichageBatiment(i);
+}
 
 updateTextes();
 // Batiments (format = [[nom, prix, cps, nombre, prixinitial]])
