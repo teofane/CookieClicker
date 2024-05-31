@@ -95,3 +95,16 @@ html{
 #Usine {
     cursor: url(./assets/usine-cursor.png), auto;
 }
+
+#alert {
+    position : fixed;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%, -50%);
+    padding : 10px;
+    background-Color : #1f52c2;
+    color : #fff;
+    border-Radius : 5px;
+    z-Index : 1000;
+    text-Align : center;
+}
