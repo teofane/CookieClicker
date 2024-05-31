@@ -60,38 +60,38 @@ html{
     background-color: #596d7c;
     width: 225px;
 }
-#cursorPng {
+#CursorPng {
     width: 35px;
     flex-direction: row;
 }
-#canardPng {
+#CanardPng {
     width: 65px;
     flex-direction: row;
 }
-#chatPng {
+#ChatPng {
     width: 55px;
     flex-direction: row;
 }
-#chienPng{
+#ChienPng{
     width: 50px;
     flex-direction: row;
 }
-#usinePng {
+#UsinePng {
     width: 60px;
     flex-direction: row;
 }
-#cursor {
+#Cursor {
     cursor:pointer;
 }
-#canard {
+#Canard {
     cursor: url(./assets/canard-cursor.png), auto;
 }
-#chat {
+#Chat {
     cursor: url(./assets/chat-cursor.png), auto;
 }
-#chien {
+#Chien {
     cursor: url(./assets/chien-cursor.png), auto;
 }
-#usine {
+#Usine {
     cursor: url(./assets/usine-cursor.png), auto;
 }
