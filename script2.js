@@ -7,7 +7,27 @@ else {
     nbCookies = parseFloat(getCookie('cookie1'), 10);
     cps = parseFloat(getCookie('cookie2'), 10);
     batiments = JSON.parse(getCookie('cookie3'));
+    date = parseInt(getCookie('cookie4'), 10);
 }
+
+tempsAfkInit = parseInt(Date.now()) - date; //on calcule le temps passé en afk
+tempsAfkInit = 266589000; ;
+console.log(tempsAfkInit,nbCookies);
+nbCookies = nbCookies + (cps * (tempsAfkInit / 1000)); //on ajoute les cookies gagnés en afk
+
+let tempsAfk2 = tempsAfkInit;
+let tempsDeco = '';
+const alert = document.createElement('div');
+if (tempsAfk2 >= 86400000){tempsDeco = Math.floor(tempsAfk2/86400000) + " jours, " ; tempsAfk2 -= Math.floor(tempsAfk2/86400000)*86400000;}
+if (tempsAfk2 >= 3600000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/3600000) + " heures, "; tempsAfk2 -= Math.floor(tempsAfk2/3600000)*3600000;}
+if (tempsAfk2 >= 60000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/60000) + " minutes, "; tempsAfk2 -= Math.floor(tempsAfk2/60000)*60000;}
+if (tempsAfk2 >= 1000){tempsDeco = tempsDeco + Math.floor(tempsAfk2/1000) + " secondes, "; tempsAfk2 -= Math.floor(tempsAfk2/1000)*1000;}
+alert.textContent = `Temps de déconnexion : ${tempsDeco} \nCookies gagnés : ${formatage(cps * tempsAfkInit/1000)}`;
+alert.id = 'alert';
+document.body.appendChild(alert);
+setTimeout(() => {
+    alert.remove();
+}, 5000);
 
 for (i=0; i < batiments.length; i++) {affichageBatiment(i);} //on affiche les batiments déjà disponibles
 
@@ -109,7 +129,7 @@ function formatage(nb){
             nb = nb / 1000;
             i++;
         }
-        if (i < 12){return nb.toFixed(1) + ['','',' thousand',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
+        if (i < 12){return nb.toFixed(1) + ['','',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
         else {return nb.toFixed(1) + ' Mais wsh frr abuse\n arrete de cheat ou achete toi une vie';}
     }
 }
@@ -141,6 +161,7 @@ function sendCookie() {
     setCookie('cookie1', nbCookies, 3);
     setCookie('cookie2', cps, 3);
     setCookie('cookie3', JSON.stringify(batiments), 3);
+    setCookie('cookie4', Date.now(), 3);
 }
 
-setInterval(sendCookie, 100);
+setInterval(sendCookie, 500);
