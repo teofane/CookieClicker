@@ -38,17 +38,17 @@ function affichageBatiment(i){ // i est la position du batiment dans le tableau
     batimentDiv.appendChild(batimentImg);
 
     const prixDiv = document.createElement('div');
-    prixDiv.id = 'Prix';
+    prixDiv.id = 'Prix'+batiments[i][0];
     prixDiv.textContent = "Prix : " + formatage(batiments[i][1]);
     batimentDiv.appendChild(prixDiv);
 
     const cpsDiv = document.createElement('div');
-    cpsDiv.id = 'Cps';
+    cpsDiv.id = 'Cps'+batiments[i][0];
     cpsDiv.textContent = "Cps : " + formatage(batiments[i][2]);
     batimentDiv.appendChild(cpsDiv);
 
     const nombreDiv = document.createElement('div');
-    nombreDiv.id = 'Nombre';
+    nombreDiv.id = 'Nombre'+batiments[i][0];
     nombreDiv.textContent = "Nombre : " + batiments[i][3];
     batimentDiv.appendChild(nombreDiv);
 
@@ -115,9 +115,9 @@ function updateTextes(){
     document.getElementById('cpstot').textContent = formatage(cps) + "/s" ;
 
     for (let i = 0; i < batiments.length; i++){
-        document.getElementById('Prix').textContent = " Prix : " + formatage(batiments[i][1]);
-        document.getElementById('Cps').textContent = " Cps : " + formatage(batiments[i][2]);
-        document.getElementById('Nombre').textContent = " Nombre : " + batiments[i][3];
+        document.getElementById('Prix'+batiments[i][0]).textContent = " Prix : " + formatage(batiments[i][1]);
+        document.getElementById('Cps'+batiments[i][0]).textContent = " Cps : " + formatage(batiments[i][2]);
+        document.getElementById('Nombre'+batiments[i][0]).textContent = " Nombre : " + batiments[i][3];
     }
     document.title = formatage(nbCookies) + " cookies - Cookie Clicker";
 }
@@ -140,6 +140,11 @@ function formatage(nb){
         if (i < 12){return nb.toFixed(1) + ['','',' thousand',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
         else {return nb.toFixed(1) + ' Mais wsh frr abuse\n arrete de cheat ou achete toi une vie';}
     }
+
+}
+
+setInterval(updateTextes, 100);
+setInterval(parSeconde, 1000);
 
 }
 
