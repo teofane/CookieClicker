@@ -93,8 +93,8 @@ function clique(){
 function updateTextes(){
 
     if (nbCookies < 1000){document.getElementById('nombre').textContent = parseInt(formatage(nbCookies));}
-    else {document.getElementById('nombre').textContent = formatage(nbCookies);}
-    document.getElementById('cpstot').textContent = formatage(cps);
+    else {document.getElementById('nombre').textContent = "Cookies : " + formatage(nbCookies);}
+    document.getElementById('cpstot').textContent = formatage(cps) + "/s" ;
 
     for (let i = 0; i < batiments.length; i++){
         const element = document.getElementById(batiments[i][0]);
