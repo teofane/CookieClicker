@@ -44,6 +44,11 @@ function creationBatiments(){ //on crée les batiments au fur et à mesure que l
     if (nbCookies >= 1100 && batiments.length === 2){createBatiment('Chat', 1100, 8, 0);affichageBatiment(2);}
     if (nbCookies >= 12000 && batiments.length === 3){createBatiment('Chien', 12000, 47, 0);affichageBatiment(3);}
     if (nbCookies >= 130000 && batiments.length === 4){createBatiment('Usine', 130000, 260, 0);affichageBatiment(4);}
+    if (nbCookies >= 1400000 && batiments.length === 5){createBatiment('Banque', 1400000, 1400, 0);affichageBatiment(5);}
+    if (nbCookies >= 20000000 && batiments.length === 6){createBatiment('Fusée', 20000000, 7800, 0);affichageBatiment(6);}
+    if (nbCookies >= 330000000 && batiments.length === 7){createBatiment('Lune', 330000000, 44000, 0);affichageBatiment(7);}
+    if (nbCookies >= 5100000000 && batiments.length === 8){createBatiment('Station Spatiale', 5100000000, 260000, 0);affichageBatiment(8);}
+    if (nbCookies >= 75000000000 && batiments.length === 9){createBatiment('Trou Noir', 75000000000, 1600000, 0);affichageBatiment(9);}
 }
 
 function affichageBatiment(i){ // i est la position du batiment dans le tableau
@@ -109,7 +114,7 @@ function updateTextes(){
 
     for (let i = 0; i < batiments.length; i++){ //on met à jour les textes des batiments ( prix, cps, nombre)
         document.getElementById('Prix'+batiments[i][0]).textContent = " Prix : " + formatage(batiments[i][1]);
-        document.getElementById('Cps'+batiments[i][0]).textContent = " Cps : " + batiments[i][2];
+        document.getElementById('Cps'+batiments[i][0]).textContent = " Cps : " + formatage(batiments[i][2]);
         document.getElementById('Nombre'+batiments[i][0]).textContent = " Nombre : " + batiments[i][3];
     }
     document.title = formatage(nbCookies) + " cookies - Cookie Clicker"; //on met à jour le titre de la page avec le nombre de cookies
@@ -131,13 +136,12 @@ function formatage(nb){
             i++;
         }
         if (i < 12){return nb.toFixed(1) + ['','',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
-        else {return nb.toFixed(1) + ' Mais wsh frr abuse\n arrete de cheat ou achete toi une vie';}
+        else {return nb.toFixed(1) + '*10^' + 3*i;}
     }
 }
 
 setInterval(updateTextes, 100);
 setInterval(parSeconde, 1000);
-
 
 // Cookies
 
