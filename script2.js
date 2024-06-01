@@ -109,7 +109,7 @@ function updateTextes(){
 
     for (let i = 0; i < batiments.length; i++){ //on met à jour les textes des batiments ( prix, cps, nombre)
         document.getElementById('Prix'+batiments[i][0]).textContent = " Prix : " + formatage(batiments[i][1]);
-        document.getElementById('Cps'+batiments[i][0]).textContent = " Cps : " + formatage(batiments[i][2]);
+        document.getElementById('Cps'+batiments[i][0]).textContent = " Cps : " + batiments[i][2];
         document.getElementById('Nombre'+batiments[i][0]).textContent = " Nombre : " + batiments[i][3];
     }
     document.title = formatage(nbCookies) + " cookies - Cookie Clicker"; //on met à jour le titre de la page avec le nombre de cookies
