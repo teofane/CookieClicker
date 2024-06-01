@@ -122,7 +122,7 @@ function parSeconde(){
 
 function formatage(nb){
     if (nb < 1000000){
-        if (nb !== cps){return Math.round(nb);} //on arrondit la valeur à l'unité si elle est inférieure à 1 million
+        if (nb !== cps){return Intl.NumberFormat('en-US').format(Math.round(nb));} //on affiche le nombre avec des virgules
         else {return nb.toFixed(1);}  //on garde le nombre de base pour les cps (pour aficher la virgule)
     }else{  // on compte combien de fois on peut diviser le nombre par 1000 pour afficher le bon suffixe
         let i = 0;
