@@ -19,18 +19,11 @@ html{
     animation: rotate 30s infinite linear;
 }
 @keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 
-#PerfectCookie:hover {
-    filter: blur(0px);
-    width:500px;
-}
+#PerfectCookie:hover {filter: blur(0px);width:500px;}
 
 .parent-container {
     height:100%;overflow:auto;
@@ -42,7 +35,7 @@ html{
     top: 0;
 }
 
-#Cursor, #Canard , #Chat ,#Chien ,#Usine ,#Banque, #Fusée, #Lune, div[id='Station Spatiale'],div[id='Trou Noir'] ,#reset  {
+#Cursor, #Canard , #Chat ,#Chien ,#Usine ,#Banque, #Fusée, #Lune, div[id='Station Spatiale'],div[id='Trou Noir']{
     border: none;
     width: 200px;
     user-select: none;
@@ -56,80 +49,32 @@ html{
     margin-right: 10px;
 }
 
-#Cursor:hover, #Canard:hover , #Chat:hover ,#Chien:hover ,#Usine:hover, #reset:hover, #Banque:hover, #Fusée:hover, #Lune:hover, div[id='Station Spatiale']:hover,div[id='Trou Noir']:hover {
+#Cursor:hover, #Canard:hover , #Chat:hover ,#Chien:hover ,#Usine:hover, #Banque:hover, #Fusée:hover, #Lune:hover, div[id='Station Spatiale']:hover,div[id='Trou Noir']:hover {
     background-color: #596d7c;
     width: 225px;
 }
-#CursorPng {
-    width: 35px;
-    flex-direction: row;
-}
-#CanardPng {
-    width: 65px;
-    flex-direction: row;
-}
-#ChatPng {
-    width: 55px;
-    flex-direction: row;
-}
-#ChienPng{
-    width: 55px;
-    flex-direction: row;
-}
-#UsinePng {
-    width: 60px;
-    flex-direction: row;
-}
-#BanquePng {
-    width: 55px;
-    flex-direction: row;
-}
-#FuséePng {
-    width: 50px;
-    flex-direction: row;
-}
-#LunePng {
-    width: 60px;
-    flex-direction: row;
-}
-img[id="Station SpatialePng"] {
-    width: 60px;
-    flex-direction: row;
-}
-img[id="Trou NoirPng"] {
-    width: 60px;
-    flex-direction: row;
-}
-#Cursor {
-    cursor:pointer;
-}
-#Canard {
-    cursor: url(./assets/canard-cursor.png), auto;
-}
-#Chat {
-    cursor: url(./assets/chat-cursor.png), auto;
-}
-#Chien {
-    cursor: url(./assets/chien-cursor.png), auto;
-}
-#Usine {
-    cursor: url(./assets/usine-cursor.png), auto;
-}
-#Banque {
-    cursor: url(./assets/banque-cursor.png), auto;
-}
-#Fusée {
-    cursor: url(./assets/fusée-cursor.png), auto;
-}
-#Lune {
-    cursor: url(./assets/lune-cursor.png), auto;
-}
-div[id='Station Spatiale'] {
-    cursor: url(./assets/station\ spatiale-cursor.png), auto;
-}
-div[id='Trou Noir'] {
-    cursor: url(./assets/trou\ noir-cursor.png), auto;
-}
+
+#CursorPng {width: 35px;}
+#CanardPng {width: 65px;}
+#ChatPng {width: 55px;}
+#ChienPng{width: 55px;}
+#UsinePng {width: 60px;}
+#BanquePng {width: 55px;}
+#FuséePng {width: 50px;}
+#LunePng {width: 60px;}
+img[id="Station SpatialePng"] {width: 60px;}
+img[id="Trou NoirPng"] {width: 60px;}
+
+#Cursor {cursor:pointer;}
+#Canard {cursor:url(./assets/canard-cursor.png),auto;}
+#Chat {cursor:url(./assets/chat-cursor.png),auto;}
+#Chien {cursor:url(./assets/chien-cursor.png),auto;}
+#Usine {cursor:url(./assets/usine-cursor.png),auto;}
+#Banque {cursor:url(./assets/banque-cursor.png),auto;}
+#Fusée {cursor:url(./assets/fusée-cursor.png),auto;}
+#Lune {cursor:url(./assets/lune-cursor.png),auto;}
+div[id='Station Spatiale'] {cursor: url(./assets/station\ spatiale-cursor.png), auto;}
+div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
 
 #alert {
     position : fixed;
@@ -142,4 +87,14 @@ div[id='Trou Noir'] {
     border-Radius : 5px;
     z-Index : 1000;
     text-Align : center;
+}
+
+#reset{
+    width: 150px;
+    background-color: #94b5cf;
+    border:none;
+    border-radius: 15px;
+    text-decoration: underline;
+    margin: 10px;
+    padding: 5px;
 }
