@@ -11,7 +11,6 @@ else {
 }
 
 tempsAfkInit = parseInt(Date.now()) - date; //on calcule le temps passé en afk
-console.log(tempsAfkInit,nbCookies);
 nbCookies = nbCookies + (cps * (tempsAfkInit / 1000)); //on ajoute les cookies gagnés en afk
 
 if (tempsAfkInit >= 1000) {
@@ -127,8 +126,8 @@ function parSeconde(){
 
 function formatage(nb){
     if (nb < 1000000){
-        if (nb !== cps && nb !== batiments[0][2]){return Intl.NumberFormat('en-US').format(Math.round(nb));} //on affiche le nombre avec des virgules
-        else {return nb.toFixed(1);}  //on garde le nombre de base pour les cps (pour aficher la virgule)
+        if (batiments[0] && batiments[0][2] !== undefined && nb !== cps && nb !== batiments[0][2]) {return Intl.NumberFormat('en-US').format(Math.round(nb));} // on affiche le nombre avec des virgules     
+            else {return Intl.NumberFormat('en-US',{minimumFractionDigits:1,maximumFractionDigits:1}).format(nb);}  //on garde le nombre de base pour les cps (pour aficher la virgule)
     }else{  // on compte combien de fois on peut diviser le nombre par 1000 pour afficher le bon suffixe
         let i = 0;
         while (nb >= 1000){
