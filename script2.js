@@ -35,19 +35,19 @@ updateTextes();
 
 // Batiments (format = [[nom, prix, cps, nombre, prixinitial]])
 
-function createBatiment(nom, prix, cps, nombre) {batiments.push([nom, prix, cps, nombre, prix]);}
+function createBatiment(nom, prix, cps, nombre, description) {batiments.push([nom, prix, cps, nombre, prix, description]);}
 
 function creationBatiments(){ //on crée les batiments au fur et à mesure que le joueur a assez de cookies
-    if (nbCookies >= 15 && batiments.length === 0){createBatiment('Cursor', 15, 0.1, 0);affichageBatiment(0);}
-    if (nbCookies >= 100 && batiments.length === 1){createBatiment('Canard', 100, 1, 0);affichageBatiment(1);}
-    if (nbCookies >= 1100 && batiments.length === 2){createBatiment('Chat', 1100, 8, 0);affichageBatiment(2);}
-    if (nbCookies >= 12000 && batiments.length === 3){createBatiment('Chien', 12000, 47, 0);affichageBatiment(3);}
-    if (nbCookies >= 130000 && batiments.length === 4){createBatiment('Usine', 130000, 260, 0);affichageBatiment(4);}
-    if (nbCookies >= 1400000 && batiments.length === 5){createBatiment('Banque', 1400000, 1400, 0);affichageBatiment(5);}
-    if (nbCookies >= 20000000 && batiments.length === 6){createBatiment('Fusée', 20000000, 7800, 0);affichageBatiment(6);}
-    if (nbCookies >= 330000000 && batiments.length === 7){createBatiment('Lune', 330000000, 44000, 0);affichageBatiment(7);}
-    if (nbCookies >= 5100000000 && batiments.length === 8){createBatiment('Station Spatiale', 5100000000, 260000, 0);affichageBatiment(8);}
-    if (nbCookies >= 75000000000 && batiments.length === 9){createBatiment('Trou Noir', 75000000000, 1600000, 0);affichageBatiment(9);}
+    if (nbCookies >= 15 && batiments.length === 0){createBatiment('Cursor', 15, 0.1, 0, "Clique Automatiquement toutes les 10 secondes");affichageBatiment(0);}
+    if (nbCookies >= 100 && batiments.length === 1){createBatiment('Canard', 100, 1, 0, "Vive le Duck Tateur qui nous offre ses précieux cookies");affichageBatiment(1);}
+    if (nbCookies >= 1100 && batiments.length === 2){createBatiment('Chat', 1100, 8, 0, "Le vrai meilleur ami de l'homme");affichageBatiment(2);}
+    if (nbCookies >= 12000 && batiments.length === 3){createBatiment('Chien', 12000, 47, 0,"The annoying dog gives you 47 cookies per second ");affichageBatiment(3);}
+    if (nbCookies >= 130000 && batiments.length === 4){createBatiment('Usine', 130000, 260, 0,"Produit de nombreux cookies pour son propriétaire");affichageBatiment(4);}
+    if (nbCookies >= 1400000 && batiments.length === 5){createBatiment('Banque', 1400000, 1400, 0, "Génère des cookies avec les intérêts");affichageBatiment(5);}
+    if (nbCookies >= 20000000 && batiments.length === 6){createBatiment('Fusée', 20000000, 7800, 0, "Ramène des cookies depuis l'espace");affichageBatiment(6);}
+    if (nbCookies >= 330000000 && batiments.length === 7){createBatiment('Lune', 330000000, 44000, 0, "Ses habitants vous offrent gentillement leurs cookies");affichageBatiment(7);}
+    if (nbCookies >= 5100000000 && batiments.length === 8){createBatiment('Station Spatiale', 5100000000, 260000, 0, "Récupère des cookies dans tout l'univers");affichageBatiment(8);}
+    if (nbCookies >= 75000000000 && batiments.length === 9){createBatiment('Trou Noir', 75000000000, 1600000, 0, "On raconte que ses cookies viennent d'une autre dimension");affichageBatiment(9);}
 }
 
 function affichageBatiment(i){ // i est la position du batiment dans le tableau
@@ -61,19 +61,22 @@ function affichageBatiment(i){ // i est la position du batiment dans le tableau
     batimentImg.id = batiments[i][0] + 'Png';
     batimentDiv.appendChild(batimentImg);
 
+    const batimentDescription = document.createElement('div');
+    batimentDescription.id = 'Description';
+    batimentDiv.appendChild(batimentDescription);
+
+    const nomDiv = document.createElement('h1');
+    nomDiv.textContent = batiments[i][0];
+    batimentDescription.appendChild(nomDiv);
+        
     const prixDiv = document.createElement('div');
     prixDiv.id = 'Prix'+batiments[i][0];
-    prixDiv.textContent = "Prix : " + formatage(batiments[i][1]);
-    batimentDiv.appendChild(prixDiv);
-
-    const cpsDiv = document.createElement('div');
-    cpsDiv.id = 'Cps'+batiments[i][0];
-    cpsDiv.textContent = "Cps : " + formatage(batiments[i][2]);
-    batimentDiv.appendChild(cpsDiv);
+    prixDiv.textContent = formatage(batiments[i][1]) + " cookies";
+    batimentDescription.appendChild(prixDiv);
 
     const nombreDiv = document.createElement('div');
     nombreDiv.id = 'Nombre'+batiments[i][0];
-    nombreDiv.textContent = "Nombre : " + batiments[i][3];
+    nombreDiv.textContent = batiments[i][3];
     batimentDiv.appendChild(nombreDiv);
 
     document.getElementById(batiments[i][0]).onclick = function() {
@@ -86,6 +89,13 @@ function affichageBatiment(i){ // i est la position du batiment dans le tableau
     }};
 }
 
+function canbuy(){
+    for (let i = 0; i < batiments.length; i++){
+        if (nbCookies >= batiments[i][1]){ document.getElementById('Prix'+batiments[i][0]).className = 'canbuy';document.getElementById(batiments[i][0]).className = 'canbuy';}
+        else{document.getElementById('Prix'+batiments[i][0]).className = 'cantbuy';document.getElementById(batiments[i][0]).className = 'cantbuy';}
+    }
+}
+setInterval(canbuy, 100);
 setInterval(creationBatiments, 100); //on vérifie si on peut créer un nouveau batiment toutes les 100ms
 
 // fonctions principales
@@ -112,9 +122,8 @@ function updateTextes(){
     document.getElementById('cpstot').textContent = formatage(cps) + "/s" ;
 
     for (let i = 0; i < batiments.length; i++){ //on met à jour les textes des batiments ( prix, cps, nombre)
-        document.getElementById('Prix'+batiments[i][0]).textContent = " Prix : " + formatage(batiments[i][1]);
-        document.getElementById('Cps'+batiments[i][0]).textContent = " Cps : " + formatage(batiments[i][2]);
-        document.getElementById('Nombre'+batiments[i][0]).textContent = " Nombre : " + batiments[i][3];
+        document.getElementById('Prix'+batiments[i][0]).textContent = formatage(batiments[i][1])+ " cookies";
+        document.getElementById('Nombre'+batiments[i][0]).textContent = batiments[i][3];
     }
     document.title = formatage(nbCookies) + " cookies - Cookie Clicker"; //on met à jour le titre de la page avec le nombre de cookies
 }
@@ -134,8 +143,8 @@ function formatage(nb){
             nb = nb / 1000;
             i++;
         }
-        if (i < 12){return nb.toFixed(1) + ['','',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
-        else {return nb.toFixed(1) + '*10^' + 3*i;}
+        if (i < 11){return nb.toFixed(1) + ['','',' million',' billion',' trillion',' quadrillion',' quintillion',' sextillion',' septillion',' octillion',' nonillion'][i];}
+        else {return nb.toFixed(1) + 'e' + 3*i;}
     }
 }
 
