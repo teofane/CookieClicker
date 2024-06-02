@@ -8,6 +8,7 @@ else {
     cps = parseFloat(getCookie('cookie2'), 10);
     batiments = JSON.parse(getCookie('cookie3'));
     date = parseInt(getCookie('cookie4'), 10);
+    nbCookiesTotal = parseFloat(getCookie('cookie5'), 10);
 }
 
 tempsAfkInit = parseInt(Date.now()) - date; //on calcule le temps passé en afk
@@ -29,26 +30,11 @@ if (tempsAfkInit >= 1000) {
     }, 5000);
 }
 
-for (i=0; i < batiments.length; i++) {affichageBatiment(i);} //on affiche les batiments déjà disponibles
+for (i=0; i < batiments.length; i++) {affichageBatiment(i);} //on affiche les batiments
 
 updateTextes();
 
 // Batiments (format = [[nom, prix, cps, nombre, prixinitial]])
-
-function createBatiment(nom, prix, cps, nombre, description) {batiments.push([nom, prix, cps, nombre, prix, description]);}
-
-function creationBatiments(){ //on crée les batiments au fur et à mesure que le joueur a assez de cookies
-    if (nbCookies >= 15 && batiments.length === 0){createBatiment('Cursor', 15, 0.1, 0, "Clique Automatiquement toutes les 10 secondes");affichageBatiment(0);}
-    if (nbCookies >= 100 && batiments.length === 1){createBatiment('Canard', 100, 1, 0, "Vive le Duck Tateur qui nous offre ses précieux cookies");affichageBatiment(1);}
-    if (nbCookies >= 1100 && batiments.length === 2){createBatiment('Chat', 1100, 8, 0, "Le vrai meilleur ami de l'homme");affichageBatiment(2);}
-    if (nbCookies >= 12000 && batiments.length === 3){createBatiment('Chien', 12000, 47, 0,"The annoying dog gives you 47 cookies per second ");affichageBatiment(3);}
-    if (nbCookies >= 130000 && batiments.length === 4){createBatiment('Usine', 130000, 260, 0,"Produit de nombreux cookies pour son propriétaire");affichageBatiment(4);}
-    if (nbCookies >= 1400000 && batiments.length === 5){createBatiment('Banque', 1400000, 1400, 0, "Génère des cookies avec les intérêts");affichageBatiment(5);}
-    if (nbCookies >= 20000000 && batiments.length === 6){createBatiment('Fusée', 20000000, 7800, 0, "Ramène des cookies depuis l'espace");affichageBatiment(6);}
-    if (nbCookies >= 330000000 && batiments.length === 7){createBatiment('Lune', 330000000, 44000, 0, "Ses habitants vous offrent gentillement leurs cookies");affichageBatiment(7);}
-    if (nbCookies >= 5100000000 && batiments.length === 8){createBatiment('Station Spatiale', 5100000000, 260000, 0, "Récupère des cookies dans tout l'univers");affichageBatiment(8);}
-    if (nbCookies >= 75000000000 && batiments.length === 9){createBatiment('Trou Noir', 75000000000, 1600000, 0, "On raconte que ses cookies viennent d'une autre dimension");affichageBatiment(9);}
-}
 
 function affichageBatiment(i){ // i est la position du batiment dans le tableau
     //on crée un div pour chaque batiment contentant une image, le prix, le cps et le nombre de batiments
@@ -89,14 +75,27 @@ function affichageBatiment(i){ // i est la position du batiment dans le tableau
     }};
 }
 
-function canbuy(){
+/*
+    canbuy unlocked = on peut acheter le batiment et on l'a deverouillé
+    cantbuy unlocked = on ne peut pas acheter le batiment mais on l'a deverouillé
+    canbuy locked on = n'existe pas car canbuy implique qu'il est déverouillé
+    cantbuy locked on = on ne peut pas l'acheter et il est verouillé mais on l'affiche car c'est le suivant après le dernier déverouillé
+    canbuy locked off = n'existe pas car canbuy implique qu'il est déverouillé
+    cantbuy locked off = on ne peut pas l'acheter et il est verouillé et on ne l'affiche pas
+*/
+function className(){
     for (let i = 0; i < batiments.length; i++){
-        if (nbCookies >= batiments[i][1]){ document.getElementById('Prix'+batiments[i][0]).className = 'canbuy';document.getElementById(batiments[i][0]).className = 'canbuy';}
-        else{document.getElementById('Prix'+batiments[i][0]).className = 'cantbuy';document.getElementById(batiments[i][0]).className = 'cantbuy';}
+        let className = '';
+        let classNamePrix = '';
+        if (nbCookies >= batiments[i][1]){className,classNamePrix = 'canbuy';}
+        else {className,classNamePrix = 'cantbuy';}
+        if (nbCookiesTotal >= batiments[i][4]){className = className + ' unlocked';}
+        else {className = className + ' locked';}
+        document.getElementById(batiments[i][0]).className = className;
+        document.getElementById('Prix'+batiments[i][0]).className = classNamePrix;
     }
 }
-setInterval(canbuy, 100);
-setInterval(creationBatiments, 100); //on vérifie si on peut créer un nouveau batiment toutes les 100ms
+setInterval(className, 100);
 
 // fonctions principales
 
@@ -106,13 +105,28 @@ function reset(){
             document.getElementById(batiments[i][0]).remove(); //on supprime les divs des batiments un par un
         }
         nbCookies = 0;  //on reset toutes les variables
+        nbCookiesTotal = 0;
         cps = 0;
-        batiments = [];
+        batiments = [
+            ['Cursor', 15, 0.1, 0, 15, "Clique Automatiquement toutes les 10 secondes"],
+            ['Canard', 100, 1, 0, 100, "Vive le Duck Tateur qui nous offre ses précieux cookies"],
+            ['Chat', 1100, 8, 0, 1100, "Le vrai meilleur ami de l'homme"],
+            ['Chien', 12000, 47, 0, 12000, "The annoying dog gives you 47 cookies per second "],
+            ['Usine', 130000, 260, 0, 130000, "Produit de nombreux cookies pour son propriétaire"],
+            ['Banque', 1400000, 1400, 0, 1400000, "Génère des cookies avec les intérêts"],
+            ['Fusée', 20000000, 7800, 0, 20000000, "Ramène des cookies depuis l'espace"],
+            ['Lune', 330000000, 44000, 0, 330000000, "Ses habitants vous offrent gentillement leurs cookies"],
+            ['Station Spatiale', 5100000000, 260000, 0, 5100000000, "Récupère des cookies dans tout l'univers"],
+            ['Trou Noir', 75000000000, 1600000, 0, 75000000000, "On raconte que ses cookies viennent d'une autre dimension"],
+        ];
+        
+        for (i=0; i < batiments.length; i++) {affichageBatiment(i);}
     }
 }
 
 function clique(){
     nbCookies = nbCookies + cpc;
+    nbCookiesTotal = nbCookiesTotal + cpc;
     updateTextes();
 }
 
@@ -130,6 +144,7 @@ function updateTextes(){
 
 function parSeconde(){
     nbCookies = Math.round((nbCookies + cps)*10) / 10; //on ajoute les cps chaque seconde
+    nbCookiesTotal = Math.round((nbCookiesTotal + cps)*10) / 10;
     updateTextes();
 }
 
@@ -175,6 +190,7 @@ function sendCookie() {
     setCookie('cookie2', cps, 3);
     setCookie('cookie3', JSON.stringify(batiments), 3);
     setCookie('cookie4', Date.now(), 3);
+    setCookie('cookie5', nbCookiesTotal, 3);
 }
 
 setInterval(sendCookie, 500);
