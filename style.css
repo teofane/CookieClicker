@@ -123,3 +123,10 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
 .cantbuy {filter: brightness(75%);}
 .unlocked{visibility: show;}
 .locked{visibility: hidden;}
+
+#boite{
+    background-color=red;
+}
+#zoneClick{
+    background-color=greeen;
+}
