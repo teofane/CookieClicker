@@ -132,3 +132,7 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
     margin:0;
     height:90%;
 }
+@media (max-width: 750px) {
+    display:flex;
+    flex-direction:column;
+}
