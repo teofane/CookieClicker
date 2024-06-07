@@ -133,6 +133,9 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
     height:90%;
 }
 @media (max-width: 750px) {
+    max-height: auto;
+    max-width: auto;
+    overflow: auto;
     .parent-container {
         height:100%;overflow:auto;
         display: flex;
