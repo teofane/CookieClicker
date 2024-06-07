@@ -129,6 +129,7 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
     background-color:red;
     display:flex;
     align-items:center;
+    flex-direction: column;
 }
 #zoneClick{
     background-color:green;
