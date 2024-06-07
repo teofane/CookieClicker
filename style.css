@@ -1,15 +1,14 @@
-html{
-    max-height: 100% ! important;
-    max-width: 100% ! important;
-    overflow: hidden ! important;
+html {
+    max-height: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
     cursor: url(./assets/cookie-cursor.png), auto;
     user-select: none;
     background-color: #fff;
     color: #000000;
-    font-family: sans-serif;
+    font-family: Tahoma, Arial, sans-serif;
     font-size: 20px;
-    padding: 0%;
-    font-family: Tahoma,Arial,sans-serif;
+    padding: 0;
 }
 
 #PerfectCookie {
@@ -19,47 +18,66 @@ html{
     transition: 0.5s;
     animation: rotate 30s infinite linear;
 }
+
 @keyframes rotate {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-#PerfectCookie:hover {filter: blur(0px);}
+#PerfectCookie:hover {
+    filter: blur(0px);
+}
 
 .parent-container {
-    height:100%;overflow:auto;
+    height: 100%;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; 
+    align-items: flex-end;
     position: fixed;
     right: 0;
     top: 0;
 }
 
-#alert {
-    position : fixed;
-    top : 50%;
-    left : 50%;
-    transform : translate(-50%, -50%);
-    padding : 10px;
-    background-Color : #1f52c2;
-    color : #fff;
-    border-Radius : 5px;
-    z-Index : 1000;
-    text-Align : center;
+/* Media Query for screens less than 750px */
+@media (max-width: 750px) {
+    .parent-container {
+        background-color: red;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
 }
 
-#reset{
+#alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: #1f52c2;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 1000;
+    text-align: center;
+}
+
+#reset {
     width: 150px;
     background-color: #94b5cf;
-    border:none;
+    border: none;
     border-radius: 15px;
     text-decoration: underline;
     margin: 10px;
     padding: 5px;
 }
 
-#Cursor, #Canard , #Chat ,#Chien ,#Usine ,#Banque, #Fusée, #Lune, div[id='Station Spatiale'],div[id='Trou Noir']{
+#Cursor, #Canard, #Chat, #Chien, #Usine, #Banque, #Fusée, #Lune, div[id='Station Spatiale'], div[id='Trou Noir'] {
     border: none;
     width: 300px;
     user-select: none;
@@ -69,39 +87,43 @@ html{
     justify-self: right;
     margin-top: 5px;
     background-color: #abd3f1;
-    border-radius:15px;
+    border-radius: 15px;
     transition: 0.5s;
     margin-right: 10px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.36);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.36);
 }
 
-#Cursor:hover, #Canard:hover , #Chat:hover ,#Chien:hover ,#Usine:hover, #Banque:hover, #Fusée:hover, #Lune:hover, div[id='Station Spatiale']:hover,div[id='Trou Noir']:hover {
-    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.5);
+#Cursor:hover, #Canard:hover, #Chat:hover, #Chien:hover, #Usine:hover, #Banque:hover, #Fusée:hover, #Lune:hover, div[id='Station Spatiale']:hover, div[id='Trou Noir']:hover {
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-h1 {font-size: 20px;text-align: center;margin : 0;}
+h1 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}
 
-#CursorPng {height: 50px; margin: 15px;}
-#CanardPng {height: 65px; margin: 7.5px;}
-#ChatPng {height: 80px; margin-left: 10px; margin-right: 10px;}
-#ChienPng{height: 60px; margin: 10px;}
-#UsinePng {height: 60px; margin: 10px;}
-#BanquePng {height: 55px; margin: 12.5px;}
-#FuséePng {height: 70px; margin: 5px;margin-left: 10px; margin-right: 10px;}
-#LunePng {height: 60px; margin: 10px;}
-img[id="Station SpatialePng"] {height: 60px; margin: 10px;}
-img[id="Trou NoirPng"] {height: 65px; margin: 7.5px;}
+#CursorPng { height: 50px; margin: 15px; }
+#CanardPng { height: 65px; margin: 7.5px; }
+#ChatPng { height: 80px; margin-left: 10px; margin-right: 10px; }
+#ChienPng { height: 60px; margin: 10px; }
+#UsinePng { height: 60px; margin: 10px; }
+#BanquePng { height: 55px; margin: 12.5px; }
+#FuséePng { height: 70px; margin: 5px; margin-left: 10px; margin-right: 10px; }
+#LunePng { height: 60px; margin: 10px; }
+img[id="Station SpatialePng"] { height: 60px; margin: 10px; }
+img[id="Trou NoirPng"] { height: 65px; margin: 7.5px; }
 
-#Cursor {cursor:pointer;}
-#Canard {cursor:url(./assets/canard-cursor.png),auto;}
-#Chat {cursor:url(./assets/chat-cursor.png),auto;}
-#Chien {cursor:url(./assets/chien-cursor.png),auto;}
-#Usine {cursor:url(./assets/usine-cursor.png),auto;}
-#Banque {cursor:url(./assets/banque-cursor.png),auto;}
-#Fusée {cursor:url(./assets/fusée-cursor.png),auto;}
-#Lune {cursor:url(./assets/lune-cursor.png),auto;}
-div[id='Station Spatiale'] {cursor: url(./assets/station\ spatiale-cursor.png), auto;}
-div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
+#Cursor { cursor: pointer; }
+#Canard { cursor: url(./assets/canard-cursor.png), auto; }
+#Chat { cursor: url(./assets/chat-cursor.png), auto; }
+#Chien { cursor: url(./assets/chien-cursor.png), auto; }
+#Usine { cursor: url(./assets/usine-cursor.png), auto; }
+#Banque { cursor: url(./assets/banque-cursor.png), auto; }
+#Fusée { cursor: url(./assets/fusée-cursor.png), auto; }
+#Lune { cursor: url(./assets/lune-cursor.png), auto; }
+div[id='Station Spatiale'] { cursor: url(./assets/station\ spatiale-cursor.png), auto; }
+div[id='Trou Noir'] { cursor: url(./assets/trou\ noir-cursor.png), auto; }
 
 #NombreCursor, #NombreCanard, #NombreChat, #NombreChien, #NombreUsine, #NombreBanque, #NombreFusée, #NombreLune, div[id='NombreStation Spatiale'], div[id='NombreTrou Noir'] {
     display: flex;
@@ -109,7 +131,7 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
     right: 10px;
     font-size: 25px;
     margin: 10px;
-    color:#596d7c;
+    color: #596d7c;
 }
 
 #PrixCursor.canbuy, #PrixCanard.canbuy, #PrixChat.canbuy, #PrixChien.canbuy, #PrixUsine.canbuy, #PrixBanque.canbuy, #PrixFusée.canbuy, #PrixLune.canbuy, div[id='PrixCursor'].canbuy, div[id='PrixStation Spatiale'].canbuy, div[id='PrixTrou Noir'].canbuy {
@@ -119,32 +141,17 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
 #PrixCursor.cantbuy, #PrixCanard.cantbuy, #PrixChat.cantbuy, #PrixChien.cantbuy, #PrixUsine.cantbuy, #PrixBanque.cantbuy, #PrixFusée.cantbuy, #PrixLune.cantbuy, div[id='PrixCursor'].cantbuy, div[id='PrixStation Spatiale'].cantbuy, div[id='PrixTrou Noir'].cantbuy {
     color: #be0d0d;
 }
-.canbuy {filter: brightness(100%);}
-.cantbuy {filter: brightness(75%);}
-.unlocked{visibility: show;}
-.locked{visibility: hidden;}
 
-#boite{
+.canbuy { filter: brightness(100%); }
+.cantbuy { filter: brightness(75%); }
+.unlocked { visibility: visible; }
+.locked { visibility: hidden; }
+
+#boite {
     width: 400px;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
     flex-direction: column;
-    margin:0;
-    height:90%;
-}
-@media (max-width: 750px) {
-    max-height: auto;
-    max-width: auto;
-    overflow: auto;
-    .parent-container {
-        background-color:red;
-        height: auto;
-        overflow: none;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        position: fixed;
-        left: 0;
-        top: auto;
-    }
+    margin: 0;
+    height: 90%;
 }
