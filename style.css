@@ -39,8 +39,10 @@ html {
     top: 0;
 }
 
-/* Media Query for screens less than 750px */
 @media (max-width: 750px) {
+    max-height: auto;
+    max-width: auto;
+    overflow: visible;
     .parent-container {
         height: auto;
         overflow: visible;
@@ -49,12 +51,12 @@ html {
         align-items: flex-start;
         position: fixed;
         left: 0;
-        top: 0;
     }
     #NombreCursor, #NombreCanard, #NombreChat, #NombreChien, #NombreUsine, #NombreBanque, #NombreFusée, #NombreLune, div[id='NombreStation Spatiale'], div[id='NombreTrou Noir'] {
         display: flex;
         position: relative;
         align-items: flex-start;
+        
     }
 }
 
