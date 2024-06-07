@@ -137,6 +137,7 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
     max-width: auto;
     overflow: auto;
     .parent-container {
+        height:auto;overflow:none;
         display: flex;
         flex-direction: column;
         align-items: flex-start; 
