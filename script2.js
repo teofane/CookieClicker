@@ -119,7 +119,7 @@ function reset(){
             ['Station Spatiale', 5100000000, 260000, 0, 5100000000, "Récupère des cookies dans tout l'univers"],
             ['Trou Noir', 75000000000, 1600000, 0, 75000000000, "On raconte que ses cookies viennent d'une autre dimension"],
         ];
-        
+        date = 0
         for (i=0; i < batiments.length; i++) {affichageBatiment(i);}
     }
 }
