@@ -14,7 +14,7 @@ html{
 
 #PerfectCookie {
     -webkit-user-drag: none;
-    width: 450px;
+    width: 300px;
     filter: blur(1px);
     transition: 0.5s;
     animation: rotate 30s infinite linear;
@@ -125,7 +125,10 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
 .locked{visibility: hidden;}
 
 #boite{
+    width: 300px;
     background-color:red;
+    display:flex;
+    align-items:center;
 }
 #zoneClick{
     background-color:green;
