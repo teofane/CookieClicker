@@ -42,7 +42,6 @@ html {
 /* Media Query for screens less than 750px */
 @media (max-width: 750px) {
     .parent-container {
-        background-color: red;
         height: auto;
         overflow: visible;
         display: flex;
@@ -51,6 +50,11 @@ html {
         position: fixed;
         left: 0;
         top: 0;
+    }
+    #NombreCursor, #NombreCanard, #NombreChat, #NombreChien, #NombreUsine, #NombreBanque, #NombreFusée, #NombreLune, div[id='NombreStation Spatiale'], div[id='NombreTrou Noir'] {
+        display: flex;
+        position: relative;
+        align-items: flex-start;
     }
 }
 
