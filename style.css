@@ -137,6 +137,7 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
     max-width: auto;
     overflow: auto;
     .parent-container {
+        background-color:red;
         height: auto;
         overflow: none;
         display: flex;
@@ -145,6 +146,5 @@ div[id='Trou Noir'] {cursor: url(./assets/trou\ noir-cursor.png), auto;}
         position: fixed;
         left: 0;
         top: auto;
-        background-color:red;
     }
 }
