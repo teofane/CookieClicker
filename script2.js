@@ -75,14 +75,6 @@ function affichageBatiment(i){ // i est la position du batiment dans le tableau
     }};
 }
 
-/*
-    canbuy unlocked = on peut acheter le batiment et on l'a deverouillé
-    cantbuy unlocked = on ne peut pas acheter le batiment mais on l'a deverouillé
-    canbuy locked on = n'existe pas car canbuy implique qu'il est déverouillé
-    cantbuy locked on = on ne peut pas l'acheter et il est verouillé mais on l'affiche car c'est le suivant après le dernier déverouillé
-    canbuy locked off = n'existe pas car canbuy implique qu'il est déverouillé
-    cantbuy locked off = on ne peut pas l'acheter et il est verouillé et on ne l'affiche pas
-*/
 function className(){
     for (let i = 0; i < batiments.length; i++){
         let className = '';
@@ -119,7 +111,7 @@ function reset(){
             ['Station Spatiale', 5100000000, 260000, 0, 5100000000, "Récupère des cookies dans tout l'univers"],
             ['Trou Noir', 75000000000, 1600000, 0, 75000000000, "On raconte que ses cookies viennent d'une autre dimension"],
         ];
-        date = 0
+        
         for (i=0; i < batiments.length; i++) {affichageBatiment(i);}
     }
 }
