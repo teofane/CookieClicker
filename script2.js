@@ -13,6 +13,7 @@ else {
 
 tempsAfkInit = parseInt(Date.now()) - date; //on calcule le temps passé en afk
 nbCookies = nbCookies + (cps * (tempsAfkInit / 1000)); //on ajoute les cookies gagnés en afk
+nbCookiesTotal = nbCookiesTotal + (cps * (tempsAfkInit / 1000));
 
 if (tempsAfkInit >= 1000) {
     let tempsAfk2 = tempsAfkInit;
